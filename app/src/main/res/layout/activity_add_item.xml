@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.skarwa.todoapp.AddItemActivity">
+    tools:context="com.example.skarwa.todoapp.activities.AddItemActivity">
 
     <EditText
         android:id="@+id/etNewItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter a New Item"
+        android:hint="@string/enterNewItemHint"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -20,11 +20,13 @@
 
     <Button
         android:id="@+id/btnSave"
+        style="@style/NiceButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/etNewItem"
+        android:layout_centerHorizontal="true"
         android:onClick="onSubmit"
         android:text="@string/saveItem"
-        android:layout_below="@+id/etNewItem"
-        android:layout_centerHorizontal="true" />
+        android:textColor="@android:color/background_light" />
 
 </RelativeLayout>

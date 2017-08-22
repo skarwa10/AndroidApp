@@ -1,8 +1,10 @@
-package com.example.skarwa.todoapp;
+package com.example.skarwa.todoapp.database;
 
 import com.raizlabs.android.dbflow.annotation.Database;
 
 /**
+ *
+ * Database of the To Do App
  * Created by skarwa on 8/15/17.
  */
 @Database(name=ToDoAppDatabase.NAME,version = ToDoAppDatabase.VERSION)

@@ -13,6 +13,7 @@
         android:layout_toStartOf="@+id/ivEdit"
         android:backgroundTint="@android:color/transparent"
         android:ems="10"
+        android:padding="5dp"
         android:focusable="false" />
 
     <!--Edit Image -->

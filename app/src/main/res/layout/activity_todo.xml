@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.skarwa.todoapp.ToDoActivity" >
+    tools:context="com.example.skarwa.todoapp.activities.ToDoListActivity" >
 
     <ListView
         android:id="@+id/lvItems"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 

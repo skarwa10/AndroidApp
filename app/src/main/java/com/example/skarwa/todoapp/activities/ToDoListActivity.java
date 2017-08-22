@@ -1,34 +1,33 @@
-package com.example.skarwa.todoapp;
+package com.example.skarwa.todoapp.activities;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import com.example.skarwa.todoapp.fragments.ToDoItemEditDialogFragment;
+import com.example.skarwa.todoapp.R;
+import com.example.skarwa.todoapp.model.ToDoItem;
+import com.example.skarwa.todoapp.adaptors.ToDoItemsAdapter;
+import com.example.skarwa.todoapp.model.ToDoItem_Table;
+import com.example.skarwa.todoapp.utils.ToDoAppConstants;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.skarwa.todoapp.R.id.etNewItem;
-import static com.example.skarwa.todoapp.ToDoItem_Table.id;
+import static com.example.skarwa.todoapp.utils.ToDoAppConstants.ITEM;
 import static com.raizlabs.android.dbflow.sql.language.SQLite.select;
-import static com.raizlabs.android.dbflow.sql.language.property.PropertyFactory.from;
 
-public class ToDoActivity extends AppCompatActivity implements EditNameDialogFragment.EditNameDialogListener {
+/**
+ * This is the main screen of the TO DO App.
+ * This fetches the existing items from the DB and displays to the user.
+ */
+public class ToDoListActivity extends AppCompatActivity implements ToDoItemEditDialogFragment.EditNameDialogListener {
     ArrayList<ToDoItem> items;
-    ToDoItemAdapter itemsAdaptor;
+    ToDoItemsAdapter itemsAdaptor;
     ListView lvItems;
 
     private final int REQUEST_CODE = 20;
@@ -42,7 +41,7 @@ public class ToDoActivity extends AppCompatActivity implements EditNameDialogFra
 
         items = new ArrayList<ToDoItem>();
         items.addAll(getItemsFromDB());
-        itemsAdaptor = new ToDoItemAdapter(this,items);
+        itemsAdaptor = new ToDoItemsAdapter(this,items);
         lvItems.setAdapter(itemsAdaptor);
     }
 
@@ -66,7 +65,7 @@ public class ToDoActivity extends AppCompatActivity implements EditNameDialogFra
 
     public void launchAddItemView() {
         // first parameter is the context, second is the class of the activity to launch
-        Intent i = new Intent(ToDoActivity.this, AddItemActivity.class);
+        Intent i = new Intent(ToDoListActivity.this, AddItemActivity.class);
 
         startActivityForResult(i,REQUEST_CODE); // brings up the second activity
     }
@@ -76,7 +75,7 @@ public class ToDoActivity extends AppCompatActivity implements EditNameDialogFra
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
             ToDoItem item = new ToDoItem();
 
-            item.setItemName(data.getExtras().getString("item"));
+            item.setItemName(data.getExtras().getString(ITEM));
             item.insert();
             items.add(item);
             itemsAdaptor.notifyDataSetChanged();

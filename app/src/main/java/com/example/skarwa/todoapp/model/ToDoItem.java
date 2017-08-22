@@ -1,14 +1,13 @@
-package com.example.skarwa.todoapp;
+package com.example.skarwa.todoapp.model;
 
+import com.example.skarwa.todoapp.database.ToDoAppDatabase;
 import com.raizlabs.android.dbflow.annotation.Column;
-import com.raizlabs.android.dbflow.annotation.Database;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
-import static com.raizlabs.android.dbflow.config.FlowLog.Level.D;
-
 /**
+ * Table of ToDoItem aka Model of Item Object
  * Created by skarwa on 8/15/17.
  */
 @Table(database = ToDoAppDatabase.class)
