@@ -27,7 +27,7 @@ The following **additional** features are implemented:
 
 * [ Yes ] List anything else that you can get done to improve the app functionality!
 1)Add App Bar menu option
-2)Added a new Icon to Android Studio and used it in ListView to record copletion of Task. (Done : Green tick)
+2)Added a new Icon to Android Studio and used it in ListView to record completion of Task. (Done : Green tick)
 
 ## Video Walkthrough
 
@@ -47,7 +47,7 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 
 **Question 2:** "Take a moment to reflect on the `ArrayAdapter` used in your pre-work. How would you describe an adapter in this context and what is its function in Android? Why do you think the adapter is important? Explain the purpose of the `convertView` in the `getView` method of the `ArrayAdapter`."
 
-**Answer:** Function of Adaptor is to generate Views for list of objects and load in listview container. It acts as a proxy between View and DataSource(Model).'convertView' is the old views that is not visible. Adaptor which uses the convertView to reuse old view instead of instantiating new View thus helps improve performance.
+**Answer:** Function of Adaptor is to generate Views for list of objects and load in listview container. It acts as a proxy between View and DataSource(Model).'convertView' is the old views that is not visible. Adaptor uses the convertView to reuse old view instead of instantiating new View thus helps improve performance.
 
 ## Notes
 
@@ -57,7 +57,7 @@ Describe any challenges encountered while building the app.
 
 2) Another challenge was the codepath documentation for DB Flow was not up to date...I faced issues with persisting the data as i was not using the right SQL commands to update /add new rows.
 
-3) Another challenge was with the layout's ...undering the difference between wrap_content and match_parent and removing all hardcoded values so that the app works on different android phone models and versions.
+3) Another challenge was with the layout's ...understanding the difference between 'wrap_content' and 'match_parent' and removing many hardcoded values so that the app works on different android phone models and versions.
 
 ## License
 
